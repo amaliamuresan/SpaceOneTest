@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<variable
+    name="viewmodel"
+    type="com.example.spaceonetest.presentation.viewmodels.DetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.fragments.DetailsFragment"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/update_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="Update"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:onClick="@{(view) -> viewmodel.deleteProduct(view)}"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.product.name}"
+            tools:text="Nume 1" />
+
+        <TextView
+            android:id="@+id/weight_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Double.toString(viewmodel.product.weight)}"
+            tools:text="32423"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/category_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Category 1"
+            android:layout_marginTop="6dp" />
+
+
+    </LinearLayout>
+</layout>

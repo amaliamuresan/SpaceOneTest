@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/overviewFragment">
+
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.spaceonetest.presentation.fragments.OverviewFragment"
+        android:label="OverviewFragment" >
+        <action
+            android:id="@+id/action_overviewFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_addNewProductFragment"
+            app:destination="@id/addNewProductFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.spaceonetest.presentation.fragments.DetailsFragment"
+        android:label="details_fragment"
+        tools:layout="@layout/details_fragment"
+        >
+        <argument
+            android:name="selectedProduct"
+            app:argType="com.example.spaceonetest.models.Product" />
+        <action
+            android:id="@+id/action_detailsFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_updateProductFragment"
+            app:destination="@id/updateProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProductFragment"
+        android:name="com.example.spaceonetest.presentation.fragments.UpdateProductFragment"
+        android:label="fragment_update_product"
+        tools:layout="@layout/fragment_update_product" >
+        <argument
+            android:name="product"
+            app:argType="com.example.spaceonetest.models.Product" />
+        <action
+            android:id="@+id/action_updateProductFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewProductFragment"
+        android:name="com.example.spaceonetest.presentation.fragments.AddNewProductFragment"
+        android:label="AddNewProductFragment" >
+        <action
+            android:id="@+id/action_addNewProductFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+</navigation>
